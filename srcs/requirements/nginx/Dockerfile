@@ -1,9 +1,11 @@
 FROM debian:buster
 
-RUN apt update
-RUN apt install nginx -y
-RUN apt install vim -y
-RUN apt install curl -y
+ENV APPS = nginx vim curl
+
+RUN apt update -y && apt upgrade -y && apt install -y $APPS
+#RUN apt install nginx -y
+#RUN apt install vim -y
+#RUN apt install curl -y
 RUN mkdir -p /etc/nginx/ssl
 RUN apt install openssl -y
 
