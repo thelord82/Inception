@@ -21,13 +21,13 @@ COPY conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 # Configuration de WordPress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /usr/local/bin/
+RUN mv wp-cli.phar /usr/local/bin/wp
 
 # Configuration de wordpress
 COPY conf/auto_config.sh /usr/local/bin/auto_config.sh
 RUN mkdir -p /run/php
 RUN chmod +x /usr/local/bin/auto_config.sh
 
-ENTRYPOINT ["/bin/sh", "/usr/local/bin/auto_config.sh"]
-
-EXPOSE 9000
+#ENTRYPOINT ["/bin/sh", "/usr/local/bin/auto_config.sh"]
+#
+#EXPOSE 9000

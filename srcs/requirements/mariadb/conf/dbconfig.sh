@@ -1,3 +1,5 @@
+#!/bin/bash -x
+
 #Demarrage MySQL
 service mysql start;
 

@@ -1,4 +1,5 @@
 #!/bin/sh
+
 wp_config_file="/var/www/wordpress/wp-config.php"
 echo "SLEEP START"
 sleep 10
