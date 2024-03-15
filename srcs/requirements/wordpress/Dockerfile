@@ -1,12 +1,11 @@
 FROM debian:buster
 
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get -y install \
-    wget \
-    php7.3 \
-    php-fpm \
-    php-mysql \
-    mariadb-client
+RUN apt-get install wget -y && \
+    apt-get install php7.3 -y && \
+    apt-get install php-fpm -y && \
+    apt-get install php-mysql -y && \
+    apt-get install mariadb-client -y
 
 #Installation, untar et rm tar du wordpress setup file
 RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www \
@@ -28,6 +27,6 @@ COPY conf/auto_config.sh /usr/local/bin/auto_config.sh
 RUN mkdir -p /run/php
 RUN chmod +x /usr/local/bin/auto_config.sh
 
-#ENTRYPOINT ["/bin/sh", "/usr/local/bin/auto_config.sh"]
-#
-#EXPOSE 9000
+ENTRYPOINT ["/bin/sh", "/usr/local/bin/auto_config.sh"]
+
+EXPOSE 9000
