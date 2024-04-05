@@ -6,8 +6,7 @@ sleep 10
 echo "SLEEP END"
 
 if [ -f "$wp_config_file" ]; then
-	echo "Deleting wp-config.php"
-	rm -rf $wp_config_file
+	echo "wp-config.php ALREADY EXISTS"
 fi
 
 if [ ! -f "$wp_config_file" ]; then
