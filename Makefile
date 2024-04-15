@@ -1,5 +1,7 @@
 RM = rm -rf
-DC = docker compose
+DC = docker-compose
+DOMAIN_NAME = malord.42.fr
+HOSTS_FILE = /etc/hosts
 
 IMAGES = $(shell for image in srcs-mariadb srcs-wordpress srcs-nginx; do docker images -q $$image; done)
 
@@ -30,7 +32,7 @@ NC = \033[0;39m
 #									 RULES									   #
 #------------------------------------------------------------------------------#
 
-all:	docker
+all:	docker hostname
 
 docker:	$(SRCS)
 	@mkdir -p $(DIR_MDB)
@@ -46,6 +48,12 @@ docker:	$(SRCS)
 	@echo "To check the DB is not empty use SHOW TABLES inside the mariadb container"
 	@echo "To check a table you can use SELECT * FROM name_of_the_table inside the mariadb container"
 	@echo "To use the terminal of a container you can use 'docker exec -it <nom_du_conteneur> /bin/sh' $(NC)"
+
+hostname:
+	@if ! grep -q "$(DOMAIN_NAME)" "$(HOSTS_FILE)"; then \
+		echo "Configuring hosts file for $(DOMAIN_NAME)"; \
+		sudo sh -c 'echo "127.0.0.1 $(DOMAIN_NAME)" >> $(HOSTS_FILE)'; \
+	fi
 
 clean:
 	@$(DC) -f $(SRCS) stop
