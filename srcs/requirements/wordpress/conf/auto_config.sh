@@ -7,11 +7,12 @@ echo "SLEEP END"
 
 if [ -f "$wp_config_file" ]; then
 	echo "wp-config.php ALREADY EXISTS"
-fi
+	echo "TEST REMOVING IT..."
+	rm -rf $wp_config_file
 
-if [ ! -f "$wp_config_file" ]; then
+else
 	echo "setuping php..."
-	wp config create --allow-root \
+	wp --allow-root config create \
     	--dbname=$SQL_DATABASE \
     	--dbuser=$SQL_USER \
     	--dbpass=$SQL_PASSWORD \
