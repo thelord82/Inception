@@ -12,7 +12,7 @@ RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www \
 && cd /var/www \
 && tar -xzf wordpress-6.0-fr_FR.tar.gz \
 && rm wordpress-6.0-fr_FR.tar.gz
-RUN chown -R root:root /var/www/wordpress
+RUN chown -R www-data:www-data /var/www/wordpress
 
 # Modification du fichier de configuration de php-fpm 
 COPY conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
