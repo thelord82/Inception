@@ -32,6 +32,7 @@ else
         --dbpass="$SQL_PASSWORD" \
         --dbhost=mariadb:3306 --path='/var/www/wordpress' 2>&1)
     wp core install --allow-root \
+        --url='https://malord.42.fr' \
         --title="$WP_TITLE" \
         --admin_user="$WP_ADMIN" \
         --admin_password="$WP_ADMIN_PASSWORD" \
