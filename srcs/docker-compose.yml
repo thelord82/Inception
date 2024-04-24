@@ -45,13 +45,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/mal/data/mariadb'
+      device: '/home/malord/data/mariadb'
   wordpress:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/mal/data/wordpress'
+      device: '/home/malord/data/wordpress'
 
 networks:
   inception:
