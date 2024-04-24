@@ -21,8 +21,8 @@ log_message "SLEEP END"
 # Check if wp-config.php file already exists
 if [ -f "$wp_config_file" ]; then
     log_message "wp-config.php ALREADY EXISTS"
-    log_message "TEST REMOVING IT..."
-    rm -rf "$wp_config_file"
+    #log_message "TEST REMOVING IT..."
+    #rm -rf "$wp_config_file"
 else
     log_message "Setting up php..."
     # Capture output of wp-cli command and log it
