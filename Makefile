@@ -14,8 +14,8 @@ NETWORK = inception
 RM_IMAGES = docker image rm $(IMAGES)
 RM_VOL = docker volume rm -f $(VOLUMES)
 
-DIR_MDB = /home/malord/data/mariadb
-DIR_WP = /home/malord/data/wordpress
+DIR_MDB = /home/mal/data/mariadb
+DIR_WP = /home/mal/data/wordpress
 
 SRCS =	srcs/docker-compose.yml
 
