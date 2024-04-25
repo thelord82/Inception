@@ -26,7 +26,7 @@ if [ -f "$wp_config_file" ]; then
 else
     log_message "Setting up php..."
     # Capture output of wp-cli command and log it
-    chmod -R 777 /var/www/wordpress
+    #chmod -R 777 /var/www/wordpress
     #wp core download --path="/var/www/wordpress" --allow-root
     wp_output=$(/usr/local/bin/wp-cli.phar --allow-root config create \
         --dbname="$SQL_DATABASE" \
